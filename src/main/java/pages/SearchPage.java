@@ -51,10 +51,13 @@ public class SearchPage extends TestBase {
     }
 
     public void clickOnAllAds () throws InterruptedException {
+        String title;
 
         for (int i=0; i<elements.size();i++)
         {
             elements.get(i).click();
+            title = driver.getTitle();
+            Assert.assertFalse(title.isEmpty());
            driver.switchTo().defaultContent();
            driver.navigate().back();
 
